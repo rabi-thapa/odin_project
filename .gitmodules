@@ -1,0 +1,3 @@
+[submodule "foundation/rock_paper_scissor"]
+	path = foundation/rock_paper_scissor
+	url = git@github.com:rabi-thapa/rock_paper_scissor.git
