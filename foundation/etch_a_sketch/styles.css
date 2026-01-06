@@ -2,6 +2,37 @@
     margin: 0;
     padding: 0;
 }
+
+header{
+    position: sticky; /* or fixed */
+    top: 0;
+    background-color: white; /* optional, to cover content under it */
+    z-index: 100;           /* keep it above other elements */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+header > #openPopupBtn {
+    padding: 0px 0px;   
+    margin: 0;          
+    border: none;        
+    background: lightgray; 
+}
+
+
+header button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    font: inherit;
+}
+
+
+
+
 main {
     background-color: aliceblue;
     width: 50%;
@@ -19,7 +50,7 @@ main div {
 }
 
 .popup-container {
-    display: none;
+    display: flex;
     position: fixed;
     z-index: 1;
     top: 10;
@@ -47,6 +78,7 @@ main div {
     font-weight: 900;
     cursor: pointer;
     margin-bottom: 10px;
+    
 }
 
 .close-btn:hover,
