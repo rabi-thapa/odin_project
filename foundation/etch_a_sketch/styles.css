@@ -4,10 +4,10 @@
 }
 
 header{
-    position: sticky; /* or fixed */
+    position: sticky;
     top: 0;
-    background-color: white; /* optional, to cover content under it */
-    z-index: 100;           /* keep it above other elements */
+    background-color: white; 
+    z-index: 100;          
     display: flex;
     justify-content: center;
     gap: 20px;
