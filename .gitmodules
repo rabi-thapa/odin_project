@@ -1,3 +1,6 @@
 [submodule "foundation/calculator"]
 	path = foundation/calculator
 	url = git@github.com:rabi-thapa/calculator.git
+[submodule "js/Library"]
+	path = js/Library
+	url = git@github.com:rabi-thapa/library.git
