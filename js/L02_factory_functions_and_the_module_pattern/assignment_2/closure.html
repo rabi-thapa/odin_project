@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // function outer(){
+            //     const outerVar= "Outer var";
+
+            //     function inner() {
+            //         const innerVar= "Inner var"
+            //         console.log(innerVar);
+            //         console.log(outerVar);
+            //     }
+            //     // inner();
+            // }
+
+            // outer();
+
+            // FIRST WAY
+            function outer() {
+                const outerVar = "Outer Var";
+
+                return function inner() {
+                    const innerVar = "Inner Var";
+                    console.log(innerVar);
+                    console.log(outerVar);
+                };
+            }
+            const innerFn = outer();
+            innerFn();
+
+            // Examples of Closures
+
+            // When We create the outer function createGreeting(){...}, we had created a variable inside of that function, which is then accessed at a lower scope.
+
+            // we have outer scope
+            function createGreeting(greeting = "") {
+                const myGreet = greeting.toUpperCase();
+
+                // we got inner scope here
+                return function (name) {
+                    return `${myGreet} ${name}`;
+                };
+            }
+
+            const sayHello = createGreeting("hello");
+            const sayHeyyy = createGreeting("hey");
+
+            console.log(sayHello("rabi"));
+            console.log(sayHello("wes"));
+            console.log(sayHeyyy("kait"));
+
+            // Our inner scope references a variable that was created in our outer scope, that is what is referred to as closure.
+
+            // We still are able to access our outer variables inside of the function scope, inside of our inner even after the createGreeting() function has been closed over. This is the whole idea behind closures, it's been closed
+
+            function createGame(gameName) {
+                let score = 0;
+                return function win() {
+                    score++;
+                    return `Your name ${gameName} score is ${score}`;
+                };
+            }
+
+            const hockeyGame = createGame("Hockey");
+            const soccerGame = createGame("Soccer");
+        </script>
+    </body>
+</html>
