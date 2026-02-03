@@ -1,0 +1,19 @@
+Check if game is already over
+Validate move(row, column, empty cell)
+Place token on the board
+Check for the win
+If no win -> check for draw
+if game not over -> switch player
+Show board
+
+
+MY FLOW
+1. Player gives row & column
+2. Check rows for win
+3. Check columns for win
+4. Check diagonals for win
+5. Set win = true if found
+6. Place the token on the board
+7. If win → announce winner
+8. Else → switch player
+9. Print board
