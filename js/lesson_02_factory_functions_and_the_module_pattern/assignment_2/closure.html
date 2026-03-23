@@ -3,10 +3,17 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>closure</title>
     </head>
     <body>
         <script>
+            /*
+            Closures are the ability of a child function, or an inner function,
+            to access variables from a higher level scope even after the functions
+            have been called or closed or closed over
+
+
+
             // function outer(){
             //     const outerVar= "Outer var";
 
@@ -15,23 +22,47 @@
             //         console.log(innerVar);
             //         console.log(outerVar);
             //     }
-            //     // inner();
+            //     inner();
             // }
 
             // outer();
 
             // FIRST WAY
-            function outer() {
-                const outerVar = "Outer Var";
+            // function outer() {
+            //     const outerVar = "Outer Var";
 
-                return function inner() {
-                    const innerVar = "Inner Var";
+            //     return function inner() {
+            //         const innerVar = "Inner Var";
+            //         console.log(innerVar);
+            //         console.log(outerVar);
+            //     };
+            // }
+
+            // const innerFn = outer();
+            // innerFn();
+
+            // SECOND WAY
+            function outer() {
+                const outerVar = "outer Var";
+                function inner() {
+                    const innerVar = "inner Var";
                     console.log(innerVar);
                     console.log(outerVar);
-                };
+                }
+                return inner;
             }
-            const innerFn = outer();
-            innerFn();
+            // const innerFn= outer();
+            // innerFn();
+
+            /*
+            In FIRST WAY & SECOND WAY
+            What we are doing there is:
+            - we are running the outer fn.
+            - it's creating an outer variable (outerVar)
+            - then we are returning the inner fn, which is why we are sticking 
+              it in a variable (innerFn)
+
+            */
 
             // Examples of Closures
 
@@ -47,12 +78,31 @@
                 };
             }
 
+            /*
+            - takes in a greeting, default is empty string
+            - assigns it to myGreet variable which takes the greeting 
+              that got passed in to the function
+            - then runs toUpperCase()
+
+            Again,
+            we will return a function, which we don't have to name,
+            which will take in the persons name and return a greeting.
+            */
+
             const sayHello = createGreeting("hello");
             const sayHeyyy = createGreeting("hey");
 
             console.log(sayHello("rabi"));
             console.log(sayHello("wes"));
             console.log(sayHeyyy("kait"));
+
+            /*
+            Why is that helpful?
+            Why did we this in two separate functions?
+
+            Because you can create functions that are based off whichever greeting 
+            you like.
+            */
 
             // Our inner scope references a variable that was created in our outer scope, that is what is referred to as closure.
 
@@ -67,7 +117,33 @@
             }
 
             const hockeyGame = createGame("Hockey");
+
             const soccerGame = createGame("Soccer");
+
+            // Console
+            // multiple times
+            // hockeyGame()
+            // hockeyGame()
+            // hockeyGame()
+            // hockeyGame()
+
+            // Console
+            // multiple times
+
+            // soccerGame
+            // soccerGame
+            // soccerGame
+            // soccerGame
+
+            /*
+            Even though the score variable 👆 is the same variable name, 
+            because we have created two separate win() functions by using the createGame() function,
+            they each have their own private variable score.
+
+            Currently there is no way for us to access score.
+
+            If you try to access it in the console, you will get an error like the following
+            */
         </script>
     </body>
 </html>
