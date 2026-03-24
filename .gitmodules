@@ -4,3 +4,6 @@
 [submodule "js/Library"]
 	path = js/Library
 	url = git@github.com:rabi-thapa/library.git
+[submodule "js/tic_tac_toe_v2"]
+	path = js/tic_tac_toe_v2
+	url = https://github.com/rabi-thapa/tic_tac_toe.git
